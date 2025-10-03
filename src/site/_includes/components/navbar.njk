@@ -5,14 +5,18 @@
                 <h1 style="margin: 15px !important;">{{meta.siteName}}</h1>
             </a>
         </div>
-        {% if settings.dgEnableSearch === true%}
-            {% include "components/searchButton.njk" %}
-        {%endif%}
+        <div class="navbar-actions">
+            {% if settings.dgEnableSearch === true%}
+                {% include "components/searchButton.njk" %}
+            {%endif%}
+            <a href="/auth" class="auth-link" style="margin-left: 15px; text-decoration: none; padding: 8px 16px; background: #007cba; color: white; border-radius: 4px;">Login</a>
+        </div>
     </nav>
     {%else%}
     <div class="empty-navbar" >
         {% if settings.dgEnableSearch === true%}
             {% include "components/searchButton.njk" %}
         {%endif%}
+        <a href="/auth" class="auth-link" style="text-decoration: none; padding: 8px 16px; background: #007cba; color: white; border-radius: 4px;">Login</a>
     </div>
 {%endif%}
