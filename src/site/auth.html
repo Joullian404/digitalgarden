@@ -262,6 +262,16 @@
             
             document.getElementById('user-username').textContent = user.username;
             document.getElementById('user-email').textContent = user.email;
+            
+            // Check if there's a redirect URL stored
+            const redirectUrl = localStorage.getItem('redirect_after_auth');
+            if (redirectUrl) {
+                localStorage.removeItem('redirect_after_auth');
+                // Redirect after a short delay to show the welcome message
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
+                }, 1500);
+            }
         }
 
         function showLoginForm() {
@@ -277,6 +287,13 @@
                 const result = await response.json();
 
                 if (result.authenticated) {
+                    // User is already authenticated, check if they should be redirected
+                    const redirectUrl = localStorage.getItem('redirect_after_auth');
+                    if (redirectUrl) {
+                        localStorage.removeItem('redirect_after_auth');
+                        window.location.href = redirectUrl;
+                        return;
+                    }
                     showUserDashboard(result.user);
                 }
             } catch (error) {
