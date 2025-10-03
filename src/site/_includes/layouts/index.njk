@@ -10,28 +10,25 @@
         {% include imp %}
     {% endfor %}
 
-    <!-- ============================================= -->
-    <!-- ===== PASSO 1: SCRIPT DO NETLIFY IDENTITY ===== -->
-    <!-- ============================================= -->
-    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <!-- ============================================== -->
-    <!-- ===== ESTILOS PARA O CONTROLE DE ACESSO ===== -->
-    <!-- ============================================== -->
+    <!-- =============================== -->
+    <!-- ===== ESTILOS (CSS) DA TRAVA DE SENHA ===== -->
+    <!-- =============================== -->
     <style>
-      /* Esconde o conteúdo principal por padrão */
-      #main-content {
-        visibility: hidden; /* Usa visibility para evitar que a página "pule" */
+      /* Esconde a mensagem de erro por padrão */
+      #error-message {
+        color: #ff8a8a;
+        display: none; /* Começa escondida */
+        margin-top: 15px;
       }
-      
-      /* Estilo para a tela de carregamento/login */
-      #access-gate {
+
+      /* Estilo da tela de senha que cobre tudo */
+      #password-gate {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #121212;
+        background-color: #121212; /* Fundo escuro */
         color: #FFF;
         display: flex;
         justify-content: center;
@@ -40,31 +37,57 @@
         font-family: sans-serif;
         text-align: center;
       }
+      
+      .gate-content h1 {
+        font-size: 24px;
+      }
+
+      .gate-content p {
+          opacity: 0.8;
+      }
+      
+      .gate-content input {
+          padding: 10px;
+          border: 1px solid #555;
+          background: #333;
+          color: #FFF;
+          border-radius: 4px;
+          margin-top: 20px;
+      }
+
       .gate-content button {
-          font-size: 16px;
-          padding: 12px 20px;
+          padding: 10px 15px;
           border: none;
           background-color: #007bff;
           color: white;
-          border-radius: 5px;
+          border-radius: 4px;
           cursor: pointer;
+      }
+
+      /* Esconde o conteúdo do site por padrão */
+      #main-content {
+        display: none;
       }
     </style>
 </head>
 
 <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
 
-  <!-- ============================================ -->
-  <!-- ===== PASSO 2: TELA DE LOGIN (HTML) ===== -->
-  <!-- ============================================ -->
-  <div id="access-gate">
+  <!-- ================================== -->
+  <!-- ===== TELA DE SENHA (HTML) ===== -->
+  <!-- ================================== -->
+  <div id="password-gate">
     <div class="gate-content">
       <h1>Acesso Restrito</h1>
-      <p>Você precisa fazer login para ver este conteúdo.</p>
-      <!-- O widget do Netlify vai criar um botão de Login/Logout aqui -->
-      <div data-netlify-identity-menu></div>
+      <p>Por favor, digite a senha para ver o conteúdo.</p>
+      <form id="password-form">
+        <input type="password" id="password-input" autocomplete="off" placeholder="••••••••">
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="error-message">Senha incorreta.</p>
     </div>
   </div>
+
 
   <!-- ===================================== -->
   <!-- ===== CONTEÚDO PRINCIPAL DO SITE ===== -->
@@ -137,46 +160,39 @@
     {%include "components/lucideIcons.njk"%}
   </div>
 
-  <!-- ================================================= -->
-  <!-- ===== PASSO 3: LÓGICA (JAVASCRIPT) DO LOGIN ===== -->
-  <!-- ================================================= -->
+  <!-- ================================== -->
+  <!-- ===== LÓGICA (JAVASCRIPT) DA TRAVA DE SENHA ===== -->
+  <!-- ================================== -->
   <script>
-    const accessGate = document.getElementById('access-gate');
-    const mainContent = document.getElementById('main-content');
+    (function() {
+      // --- A SENHA FOI ATUALIZADA AQUI ---
+      const correctPassword = "479321!@!";
 
-    // Função para mostrar o conteúdo
-    const showContent = () => {
-      accessGate.style.display = 'none';
-      mainContent.style.visibility = 'visible';
-    };
-    
-    // Função para mostrar a tela de login
-    const showLoginGate = () => {
-        accessGate.style.display = 'flex';
-        mainContent.style.visibility = 'hidden';
-    };
+      const passwordGate = document.getElementById('password-gate');
+      const mainContent = document.getElementById('main-content');
+      const passwordForm = document.getElementById('password-form');
+      const passwordInput = document.getElementById('password-input');
+      const errorMessage = document.getElementById('error-message');
 
-    // Evento que dispara quando o widget do Netlify Identity está pronto
-    netlifyIdentity.on('init', user => {
-      if (user) {
-        // Se já existe um usuário logado, mostra o conteúdo
-        showContent();
-      } else {
-        // Se não, mostra a tela de login
-        showLoginGate();
-      }
-    });
+      // Foca no campo de senha assim que a página carrega
+      passwordInput.focus();
 
-    // Evento que dispara quando um usuário faz login
-    netlifyIdentity.on('login', () => {
-      showContent();
-    });
-    
-    // Evento que dispara quando um usuário faz logout
-    netlifyIdentity.on('logout', () => {
-      showLoginGate();
-    });
+      passwordForm.addEventListener('submit', function(event) {
+        // Impede que o formulário recarregue a página
+        event.preventDefault();
 
+        if (passwordInput.value === correctPassword) {
+          // Senha correta: esconde a tela de senha e mostra o conteúdo
+          passwordGate.style.display = 'none';
+          mainContent.style.display = 'block';
+        } else {
+          // Senha incorreta: mostra a mensagem de erro
+          errorMessage.style.display = 'block';
+          passwordInput.value = ''; // Limpa o campo
+          passwordInput.focus(); // Foca no campo novamente
+        }
+      });
+    })();
   </script>
 
 </body>
