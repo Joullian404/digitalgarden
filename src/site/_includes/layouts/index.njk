@@ -1,16 +1,99 @@
 <!DOCTYPE html>
 <html lang="{{ meta.mainLanguage }}">
-  <head>
+<head>
     <title>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</title>
     {%include "components/pageheader.njk"%}
     {% for imp in dynamics.common.head %}
-      {% include imp %}
+        {% include imp %}
     {% endfor %}
     {% for imp in dynamics.index.head %}
-      {% include imp %}
+        {% include imp %}
     {% endfor %}
-  </head>
-  <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
+
+    <!-- =============================== -->
+    <!-- ===== ESTILOS (CSS) DA TRAVA DE SENHA ===== -->
+    <!-- =============================== -->
+    <style>
+      /* Esconde a mensagem de erro por padrão */
+      #error-message {
+        color: #ff8a8a;
+        display: none; /* Começa escondida */
+        margin-top: 15px;
+      }
+
+      /* Estilo da tela de senha que cobre tudo */
+      #password-gate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #121212; /* Fundo escuro */
+        color: #FFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        font-family: sans-serif;
+        text-align: center;
+      }
+      
+      .gate-content h1 {
+        font-size: 24px;
+      }
+
+      .gate-content p {
+          opacity: 0.8;
+      }
+      
+      .gate-content input {
+          padding: 10px;
+          border: 1px solid #555;
+          background: #333;
+          color: #FFF;
+          border-radius: 4px;
+          margin-top: 20px;
+      }
+
+      .gate-content button {
+          padding: 10px 15px;
+          border: none;
+          background-color: #007bff;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+      /* Esconde o conteúdo do site por padrão */
+      #main-content {
+        display: none;
+      }
+    </style>
+</head>
+
+<body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
+
+  <!-- ================================== -->
+  <!-- ===== TELA DE SENHA (HTML) ===== -->
+  <!-- ================================== -->
+  <div id="password-gate">
+    <div class="gate-content">
+      <h1>Acesso Restrito</h1>
+      <p>Por favor, digite a senha para ver o conteúdo.</p>
+      <form id="password-form">
+        <input type="password" id="password-input" autocomplete="off" placeholder="••••••••">
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="error-message">Senha incorreta.</p>
+    </div>
+  </div>
+
+
+  <!-- ===================================== -->
+  <!-- ===== CONTEÚDO PRINCIPAL DO SITE ===== -->
+  <!-- ===================================== -->
+  <div id="main-content">
+
     {%include "components/notegrowthhistory.njk"%}
     {% if settings.dgShowFileTree !== true %}
       {%include "components/navbar.njk"%}
@@ -75,5 +158,42 @@
       {% include imp %}
     {% endfor %}
     {%include "components/lucideIcons.njk"%}
-    </body>
-  </html>
+  </div>
+
+  <!-- ================================== -->
+  <!-- ===== LÓGICA (JAVASCRIPT) DA TRAVA DE SENHA ===== -->
+  <!-- ================================== -->
+  <script>
+    (function() {
+      // --- Defina sua senha aqui ---
+      const correctPassword = "palavra-chave-secreta";
+
+      const passwordGate = document.getElementById('password-gate');
+      const mainContent = document.getElementById('main-content');
+      const passwordForm = document.getElementById('password-form');
+      const passwordInput = document.getElementById('password-input');
+      const errorMessage = document.getElementById('error-message');
+
+      // Foca no campo de senha assim que a página carrega
+      passwordInput.focus();
+
+      passwordForm.addEventListener('submit', function(event) {
+        // Impede que o formulário recarregue a página
+        event.preventDefault();
+
+        if (passwordInput.value === correctPassword) {
+          // Senha correta: esconde a tela de senha e mostra o conteúdo
+          passwordGate.style.display = 'none';
+          mainContent.style.display = 'block';
+        } else {
+          // Senha incorreta: mostra a mensagem de erro
+          errorMessage.style.display = 'block';
+          passwordInput.value = ''; // Limpa o campo
+          passwordInput.focus(); // Foca no campo novamente
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
