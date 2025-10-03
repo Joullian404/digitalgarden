@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/demencia-e-coisa-e-tal/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/demencia-e-coisa-e-tal/","dgPassFrontmatter":true}
 ---
 
 

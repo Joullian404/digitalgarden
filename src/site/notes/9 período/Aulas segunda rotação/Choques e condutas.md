@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/choques-e-condutas/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/choques-e-condutas/","dgPassFrontmatter":true}
 ---
 
 

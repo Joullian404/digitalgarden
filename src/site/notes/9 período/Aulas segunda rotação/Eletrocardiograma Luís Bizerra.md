@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/eletrocardiograma-luis-bizerra/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/eletrocardiograma-luis-bizerra/","dgPassFrontmatter":true}
 ---
 
 Claro, aqui está um resumo detalhado da aula em formato de texto para o Obsidian.

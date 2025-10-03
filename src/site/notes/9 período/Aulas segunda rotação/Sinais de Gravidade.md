@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/sinais-de-gravidade/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/sinais-de-gravidade/","dgPassFrontmatter":true}
 ---
 
 

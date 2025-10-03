@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/cetoacidose-diabetica/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/cetoacidose-diabetica/","dgPassFrontmatter":true}
 ---
 
 ***

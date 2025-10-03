@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/transtornos-de-personalidade/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/transtornos-de-personalidade/","dgPassFrontmatter":true}
 ---
 
 # Transtornos de Personalidade e Transtornos do Humor: Resumo Detalhado para Obsidian

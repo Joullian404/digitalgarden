@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/sca/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/sca/","dgPassFrontmatter":true}
 ---
 
 

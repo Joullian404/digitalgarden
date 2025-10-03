@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/eletro-com-gerardo/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/eletro-com-gerardo/","dgPassFrontmatter":true}
 ---
 
 

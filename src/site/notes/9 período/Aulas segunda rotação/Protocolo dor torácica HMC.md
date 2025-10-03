@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/protocolo-dor-toracica-hmc/"}
+{"share_link":"https://share.note.sx/9tcpi92n#d1GGHO9+RcKZrwQw9TCGnP3vyRenqYG6cHr7lOWFHKk","share_updated":"2025-10-03T13:22:46-03:00","dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/protocolo-dor-toracica-hmc/","dgPassFrontmatter":true}
 ---
 
 

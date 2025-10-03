@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/transtornos-somatomoformes/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/transtornos-somatomoformes/","dgPassFrontmatter":true}
 ---
 
 ## Transtornos Psiquiátricos que Cursam com Sintomas Somáticos

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/arritmias/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/arritmias/","dgPassFrontmatter":true}
 ---
 
 

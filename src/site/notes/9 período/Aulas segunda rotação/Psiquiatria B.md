@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/psiquiatria-b/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/psiquiatria-b/","dgPassFrontmatter":true}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/toc-e-tag/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/toc-e-tag/","dgPassFrontmatter":true}
 ---
 
 # Transtornos de Ansiedade: Resumo/Aula Detalhado

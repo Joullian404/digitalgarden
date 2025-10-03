@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/transtornos-alimentares/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/transtornos-alimentares/","dgPassFrontmatter":true}
 ---
 
 ## Resumo Extremamente Detalhado de Transtornos Alimentares para Estudantes de Medicina (em Bullet Points)

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/ic-descompensada/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/ic-descompensada/","dgPassFrontmatter":true}
 ---
 
 

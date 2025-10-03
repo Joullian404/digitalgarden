@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/abuso-de-substancias/"}
+{"dg-publish":true,"permalink":"/9-periodo/aulas-segunda-rotacao/abuso-de-substancias/","dgPassFrontmatter":true}
 ---
 
 # Dependência Química
